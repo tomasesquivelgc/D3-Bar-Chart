@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#main {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto';
+  background-color: #708090;
+  background-size: 64px 128px;
+}
+
+#container {
+  height: 560px;
+  width: 900px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 20px 20px;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  margin: 0 auto; /* Center horizontally within the parent */
+  position: relative;
+}
+
+h1 {
+  text-align: center;
+}
+
+.bar:hover {
+  cursor: pointer;
+  fill: #770d47;
+}
+
+#tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  pointer-events: none; /* Prevents tooltip from blocking mouse interactions with underlying elements */
+  opacity: 0;
+}
