@@ -22,10 +22,16 @@
   padding: 20px 20px 20px 20px;
   align-self: center;
   position: relative;
+
 }
+
+h1 {
+  text-align: center;
+}
+
 .bar:hover {
   cursor: pointer;
-  fill: #dabdbd;
+  fill: #770d47;
 }
 
 #tooltip {
@@ -35,5 +41,5 @@
   padding: 10px;
   border-radius: 5px;
   pointer-events: none; /* Prevents tooltip from blocking mouse interactions with underlying elements */
-  transition: opacity 0.2s;
+  opacity: 0;
 }

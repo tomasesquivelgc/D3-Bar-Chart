@@ -17,22 +17,26 @@ const svg = d3.create("svg")
 var tooltip = d3
   .select('.visHolder')
   .append('div')
-  .attr('id', 'tooltip')
-  .style('opacity', 0);
+  .attr('id', 'tooltip');
 
   function onMouseMove(event) {
     // Get mouse coordinates relative to the page
     const x = event.clientX;
     const y = event.clientY;
+    const dataDate = event.target.getAttribute('data-date');
+    const dataGDP = event.target.getAttribute('data-gdp');
   
     // Use the x and y coordinates to position the tooltip
-    tooltip.style('left', `${x + 10}px`) // Adjust the offset as needed
-           .style('top', `${y + 10}px`); // Adjust the offset as needed
+    tooltip.style('left', x-170+"px") // Adjust the offset as needed
+           .style('top', y-10+"px") // Adjust the offset as needed
+           .style('opacity', 1)
+           .attr('data-date', dataDate)
+           .html(`Date: ${dataDate}<br>GDP: $${dataGDP} Billion`);
   }
       
 // Function to hide the tooltip on mouseout
 function onMouseOut() {
-    tooltip.transition().duration(200).style('opacity', 0);
+    tooltip.style('opacity', 0);
 }
 
 d3.json('https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/GDP-data.json')
@@ -45,7 +49,7 @@ d3.json('https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/mas
     console.log(minX, maxX, minY, maxY);
 
     // Declare the x (horizontal position) scale.
-    const x = d3.scaleUtc()
+    const x = d3.scaleTime()
         .domain([new Date(minX), new Date(maxX)])
         .range([marginLeft, width - marginRight]);
 
@@ -76,7 +80,7 @@ d3.json('https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/mas
         .attr("data-gdp", d => d[1])
         .attr("x", d => x(new Date(d[0])))
         .attr("y", d => y(d[1]))
-        .attr("width", 5)
+        .attr("width", 3)
         .attr("height", d => height - marginBottom - y(d[1]))
         .attr("fill", "navy")
         .on("mouseover", onMouseMove)
