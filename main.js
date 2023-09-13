@@ -48,6 +48,20 @@ d3.json('https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/mas
     const maxY = d3.max(dataset, d => d[1]);
     console.log(minX, maxX, minY, maxY);
 
+    svg
+      .append('text')
+      .attr('transform', 'rotate(-90)')
+      .attr('x', -200)
+      .attr('y', 80)
+      .text('Gross Domestic Product');
+
+    svg
+      .append('text')
+      .attr('x', width / 2 -50)
+      .attr('y', height)
+      .text('More Information: http://www.bea.gov/national/pdf/nipaguid.pdf')
+      .attr('class', 'info');
+
     // Declare the x (horizontal position) scale.
     const x = d3.scaleTime()
         .domain([new Date(minX), new Date(maxX)])
