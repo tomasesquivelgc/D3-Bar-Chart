@@ -23,3 +23,17 @@
   align-self: center;
   position: relative;
 }
+.bar:hover {
+  cursor: pointer;
+  fill: #dabdbd;
+}
+
+#tooltip {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  pointer-events: none; /* Prevents tooltip from blocking mouse interactions with underlying elements */
+  transition: opacity 0.2s;
+}
