@@ -20,9 +20,10 @@
   display: flex;
   flex-direction: column;
   padding: 20px 20px 20px 20px;
-  align-self: center;
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  margin: 0 auto; /* Center horizontally within the parent */
   position: relative;
-
 }
 
 h1 {
